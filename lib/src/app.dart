@@ -3,7 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:katai/src/screens/home/home.dart';
 import 'package:katai/src/screens/map/map.dart';
+import 'package:katai/src/screens/weather/models/weather_provider.dart';
 import 'package:katai/src/screens/weather/weather.dart';
+import 'package:provider/provider.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
@@ -70,7 +72,10 @@ class MyApp extends StatelessWidget {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   case WeatherScreen.routeName:
-                    return const WeatherScreen();
+                    return ChangeNotifierProvider<WeatherProvider>(
+                      create: (context) => WeatherProvider(),
+                      child: const WeatherScreen(),
+                    );
                   case MapScreen.routeName:
                     return const MapScreen();
                   default:
