@@ -16,7 +16,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       appBar: AppBar(
         title: const Text('Weather'),
       ),
-      body: Center(
+      body: const Center(
         child: BikeLoader(),
       ),
     );
