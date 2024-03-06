@@ -12,10 +12,13 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const BikeLoader(),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Weather'),
+      ),
+      body: Center(
+        child: BikeLoader(),
+      ),
     );
   }
 }

@@ -4,9 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:katai/src/screens/home/home.dart';
 import 'package:katai/src/screens/map/map.dart';
 import 'package:katai/src/screens/weather/weather.dart';
-
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
