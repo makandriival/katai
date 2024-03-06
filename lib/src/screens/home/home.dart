@@ -15,31 +15,55 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () {
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (value) {
+          switch (value) {
+            case 0:
+              Navigator.pushNamed(context, '/home');
+              return;
+            case 1:
               Navigator.pushNamed(context, '/map');
-            },
-            child: const Text('Map'),
-          ),
-          ElevatedButton(
-            onPressed: () {
+              return;
+            case 2:
               Navigator.pushNamed(context, '/weather');
-            },
-            child: const Text('Weather'),
+              return;
+            case 3:
+              Navigator.pushNamed(context, '/settings');
+              return;
+            default:
+              Navigator.pushNamed(context, '/home');
+          }
+        },
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, SettingsView.routeName);
-            },
-            child: const Icon(
-              Icons.settings,
-              size: 30,
+          NavigationDestination(
+            selectedIcon: Badge(child: Icon(Icons.map)),
+            icon: Badge(child: Icon(Icons.map_outlined)),
+            label: 'Map',
+          ),
+          NavigationDestination(
+            icon: Badge(
+              // label: Text('2'),
+              child: Icon(Icons.cloud),
             ),
+            label: 'Weather',
           ),
+          NavigationDestination(
+            icon: Badge(
+              // label: Text('2'),
+              child: Icon(Icons.settings),
+            ),
+            label: 'Settings',
+          ),
+        ],
+      ),
+      body: const Column(
+        children: [
+          Text('Home'),
         ],
       ),
     );
